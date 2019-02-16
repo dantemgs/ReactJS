@@ -5,7 +5,47 @@
     <title>Title</title>
 </head>
 <body>
-
+<div id="block"></div>
 </body>
 <script src="js/1.js"></script>
+<script src="js/2.js"></script>
+<script src="js/3.js"></script>
+<script>
+    window.onload = () => {
+        let block = document.getElementById('block');
+
+        let task1 = loop(2, callback);
+        block.innerHTML += `${task1}<hr>`;
+
+        let task2 = calculateTriangleArea(2, 6);
+        task2 = task2.toString();
+        block.innerHTML += `${task2}<hr>`;
+
+        //task3
+        developers = [
+            ['Иван1', 21, '01.01.1991', 1, '1'],
+            ['Иван2', 22, '01.01.1990', 2, '2'],
+            ['Иван3', 23, '01.01.1989', 3, '3'],
+        ];
+
+        let manager = new Manager('Петров', 23, '01.01.1989', 1, 1, developers);
+        console.log(manager.writeDevelopers());
+
+        newDeveloper = ['Иван5', 25, '01.01.1986', 5, '5'];
+        manager.addDeveloper(newDeveloper);
+        console.log(manager.writeDevelopers());
+
+        manager.removeDeveloper(newDeveloper);
+        console.log(manager.writeDevelopers());
+
+        console.log(manager.displayInfo());
+
+        console.log('Теперь разработчик:');
+        let developer = new Developer('Иван1', 21, '01.01.1991', 1, '1', manager);
+        console.log(developer.manager);
+
+        developer.changeManager('Василий', 23, '01.01.1989', 1, 1,);
+        console.log(developer.manager);
+    };
+</script>
 </html>
